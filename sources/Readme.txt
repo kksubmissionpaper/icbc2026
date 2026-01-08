@@ -51,7 +51,10 @@ Tests storage cost with varying payload sizes (0, 1KB, 4KB, 16KB, 64KB):
 - Deployed Move contract on Sui testnet
 
 ### Environment Variables (.env)
-
+PACKAGE_ID	The unique identifier of the deployed Sui Move package on the Sui testnet network.	
+UPGRADE_CAP	The capability object ID required to authorize package upgrades.	
+SUI_ADDRESS	The test wallet address used for signing transactions and paying gas fees.	
+SUI_PRIVATE_KEY	The secret key for the test wallet. Keep this secure and never share it.	
 
 ## Execution
 npx ts-node main_benchmark.ts
