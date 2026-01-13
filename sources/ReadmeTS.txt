@@ -41,6 +41,18 @@ Tests object lifecycle rollback:
 - Object modification + abort
 - Shared object pool management (version conflict avoidance)
 
+Category 3 examines whether changes are correctly rolled back when errors occur after writing data or creating new objects, and the associated gas costs.
+
+1. Owned Object Creation (Creation followed by Abort)
+2. Shared Object Creation (Creation then aborting of Shared Objects)
+3. Shared Object Modify (Modification and Cancellation of Shared Objects)
+4. Owned Modify (Create + Modify same TX): Utilising Sui's unique feature (Programmable Transaction Block: PTB)
+
+Provide numerical answers (in MIST units) to the following hypotheses and questions:
+- Is the cost of "creating but discarding" high?
+- Does Storage Cost occur?
+- What is the difference in cost between rolling back an Owned object and rolling back a modification to a Shared object?
+
 ### Category 4: Balance Operations
 Tests SUI coin deposit/abort scenarios:
 - Splits 1000 MIST from gas coin
