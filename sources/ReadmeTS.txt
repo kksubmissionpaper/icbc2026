@@ -11,6 +11,24 @@ Tests abort behavior at 4 depth levels (early/shallow/medium/deep) for owned and
 - 10 iterations per depth (5 abort, 5 success cases)
 - Validates gas consumption scaling with call stack depth
 
+This "Depth Level" refers to "the depth at which an error (Abort) occurs when a function is called", it means it's "the depth of the call stack".
+This section is designed to verify the hypothesis "the deeper the location where an error occurs, the higher the cost for Sui to roll back the processing".
+
+- Early (Error at entry point)
+An error occurs immediately upon entering the function, typically within the first one or two lines, e.g., failure during argument validation checks, such as assert!(value > 100, ...).
+As almost no processing has been performed.
+
+- Shallow (After some processing)
+An error occurs after performing simple calculations or calling another function once or twice, i.e. stopping with assert after calculating several variables and calling one helper function. 
+A small amount of memory (stack frames) has been used.
+
+- Medium (3–5 layers)
+An error occurs within a chain of function calls deeply (e.g., function A calls B, B calls C, etc.), spanning 3–5 layers.
+As multiple functions are involved, the Sui Move VM manages the state of all these functions. If it crashes here, all that state must be discarded.
+
+- Deep (6 layers or more)
+An error occurs at the deepest level of a very deep function nesting structure (6 layers or more), because it is occurred with many functions stacked. For example, it's a check failing at the final stage of complex business logic.
+
 ### Category 2: VM Errors
 Tests runtime VM errors:
 - Arithmetic overflow (u64 max value)
