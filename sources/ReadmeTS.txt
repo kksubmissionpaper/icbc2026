@@ -60,9 +60,13 @@ Tests SUI coin deposit/abort scenarios:
 
 ### Category 5: Rebate Trap
 Critical storage rebate analysis:
-- Success: create → destroy (rebate obtained)
-- Abort before destroy (no rebate)
-- Destroy then abort (rebate behavior)
+This category verifies the behavior of Sui's storage rebate mechanism under success/different failure scenarios.
+
+Test Scenarios:
+1.  Success Case (Normal): Creates and then destroys an object within the same transaction.
+2.  Abort Before Destroy: Attempts to destroy an object but aborts "before" the destruction instruction is executed.
+3.  Destroy Then Abort: Destroys an object but then aborts "later" in the same transaction.
+
 
 ### Category 6: Rollback Depth Analysis
 Measures rollback cost differences across 3 depth levels (20 iterations each).
