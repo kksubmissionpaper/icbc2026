@@ -81,6 +81,9 @@ Tests storage cost with varying payload sizes (0, 1KB, 4KB, 16KB, 64KB):
 - Owned: create+destroy (rebate path)
 - Shared: create+share (persist)
 
+This category tests how increasing an object's data size (capacity) affects cost and behavior. Specifically, by incrementally increasing the size (sweeping), we tested whether the cost increases cleanly in proportion to the size, or whether it suddenly becomes significantly heavier once a certain size is exceeded.
+
+
 ## Setup
 
 ### Prerequisites
