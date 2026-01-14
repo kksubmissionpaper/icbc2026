@@ -71,6 +71,10 @@ Test Scenarios:
 ### Category 6: Rollback Depth Analysis
 Measures rollback cost differences across 3 depth levels (20 iterations each).
 
+This category is similar to Category 1, but differs in that it focuses specifically on measuring the "cost of the rollback itself". In other words, it assumes all transaction is aborted.
+It involves repeatedly executing a transaction which is always failing at varying depths (Shallow / Medium / Deep), measuring "how exactly does the gas cost for the rollback change when the depth increases by one level?".
+To simplify the experiment, we avoided using Shared Objects, which are prone to external factors (such as consensus or lock contention), and then used only Owned Objects.
+
 ### Category 7: Payload Sweep
 Tests storage cost with varying payload sizes (0, 1KB, 4KB, 16KB, 64KB):
 - Owned: create+transfer (persist)
