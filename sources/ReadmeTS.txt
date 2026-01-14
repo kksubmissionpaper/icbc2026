@@ -35,6 +35,9 @@ Tests runtime VM errors:
 - Division by zero
 - Vector out-of-bounds access
 
+This category tests for unexpected Runtime Errors that occur during program execution. It verifies how Sui Move VM handles these incidents and what error codes and gas consumption values return.
+Tests are conducted for both Owned and Shared object types.
+
 ### Category 3: State Rollback
 Tests object lifecycle rollback:
 - Object creation + abort
