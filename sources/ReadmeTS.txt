@@ -101,7 +101,7 @@ This category tests how increasing an object's data size (capacity) affects cost
 ### Prerequisites
 - Node.js
 - Sui TypeScript SDK (@mysten/sui)
-- Deployed Move contract on Sui testnet
+- Deployed Sui Move contract on Sui testnet
 
 ### Environment Variables (.env)
 PACKAGE_ID	The unique identifier of the deployed Sui Move package on the Sui testnet network.	
