@@ -27,7 +27,7 @@ An error occurs within a chain of function calls deeply (e.g., function A calls 
 As multiple functions are involved, the Sui Move VM manages the state of all these functions. If it crashes here, all that state must be discarded.
 
 - Deep (6 layers or more)
-An error occurs at the deepest level of a very deep function nesting structure (6 layers or more), because it is occurred with many functions stacked. For example, it's a check failing at the final stage of complex business logic.
+An error occurs after a sequence of nested function calls (e.g., 6+ layers or heavy computation loops), it is not approaching the VM's hard stack limit (1024), but this level represents complex business logic scenarios where multiple module boundaries might be crossed.
 
 ### Category 2: VM Errors
 Tests runtime VM errors:
