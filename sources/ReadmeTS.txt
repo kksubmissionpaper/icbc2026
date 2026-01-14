@@ -58,6 +58,15 @@ Tests SUI coin deposit/abort scenarios:
 - Splits 1000 MIST from gas coin
 - Validates balance rollback on abort
 
+This category tests whether SUI coin transfers are correctly canceled (reverted) when errors occur. We performed this test on both Owned objects and Shared objects.
+
+- First, we carved out 1000 MIST worth from our Gas Coin to create a new small coin object.
+- Deposit (merge) that 1000 MIST coin into a test object (either Owned or Shared).
+- Immediately after the deposit completes, intentionally trigger an Abort.
+
+The result measures whether the 1000 MIST that was reliably carved out reliably returns to the original Gas Coin, and whether there is a difference in the processing cost.
+
+
 ### Category 5: Rebate Trap
 Critical storage rebate analysis:
 This category verifies the behavior of Sui's storage rebate mechanism under success/different failure scenarios.
